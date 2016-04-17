@@ -185,6 +185,9 @@ function LogoArea(alignLeft) {
 	name.setImageUri("img/androidcat.png");
 	this.addView(name);
  
+ 	this.setOnClickListener(function(){
+		ShowSnackBar("欢迎来到AndroidCat安卓书签网~");
+ 	});
  
 
 

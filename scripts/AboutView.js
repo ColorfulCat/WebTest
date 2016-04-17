@@ -27,18 +27,19 @@ function AboutView() {
 
     var logoView = new LogoView();
     cnt.addView(logoView, lp);
-
-    var commentTitle = Theme.createThemeTitle(R.string.comments);
-    cnt.addView(commentTitle);
-
-    var commentView = new CommentView();
-    cnt.addView(commentView, lp);
-
-    var question = Theme.createThemeTitle(R.string.qa);
-    cnt.addView(question);
-
+    
     var questionView = new QuestionView();
     cnt.addView(questionView, lp);
+//
+//  var commentTitle = Theme.createThemeTitle(R.string.comments);
+//  cnt.addView(commentTitle);
+//
+//  var commentView = new CommentView();
+//  cnt.addView(commentView, lp);
+
+ 
+
+  
 }
 
 function LogoView() {

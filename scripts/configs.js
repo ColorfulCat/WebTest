@@ -82,7 +82,7 @@ function _R() {
             this.show_more = "显示更多";
             this.show_less = "收起显示";
             this.change_log = "更新记录";
-            this.comments = "测试内容";
+            this.comments = "以下是测试内容";
             this.qa = "联系";
             this.ask_question = "如需讨论，请加入QQ反馈群：105472201</br></br>Made by 大花猫Devis</br></br>Thanks to  Jndroid & LeanCloud";
 
