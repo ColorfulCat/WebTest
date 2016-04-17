@@ -1,140 +1,133 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>jQuery带筛选功能垂直导航代码 - A5源码</title>
+<!DOCTYPE html>
+<html>
 
-<link href="css/jquery-accordion-menu.css" rel="stylesheet" type="text/css" />
-<link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
+	<head lang="en">
+		<meta charset="UTF-8" />
+		<title>AndroidCat</title>
 
-<style type="text/css">
-*{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
-body{background:#f0f0f0;}
-.content{width:260px;margin:100px auto;}
-.filterinput{
-	background-color:rgba(249, 244, 244, 0);
-	border-radius:15px;
-	width:90%;
-	height:30px;
-	border:thin solid #FFF;
-	text-indent:0.5em;
-	font-weight:bold;
-	color:#FFF;
-}
-#demo-list a{
-	overflow:hidden;
-	text-overflow:ellipsis;
-	-o-text-overflow:ellipsis;
-	white-space:nowrap;
-	width:100%;
-}
-</style>
+		<!-- Jndroid libraries -->
+		<script src="js/jndroid/jndroid.core.js"></script>
+		<script src="js/jndroid/jndroid.animation.js"></script>
+		<script src="js/jndroid/jndroid.widget.js"></script>
+		<script src="js/jndroid/jndroid.layout.js"></script>
+		<script src="js/jndroid/jndroid.mwidget.js"></script>
+		<script src="js/jndroid/ListView.js"></script>
 
-<script src="js/jquery-1.11.2.min.js" type="text/javascript"></script>
-<script src="js/jquery-accordion-menu.js" type="text/javascript"></script>
-<script type="text/javascript">
-jQuery(document).ready(function () {
-	jQuery("#jquery-accordion-menu").jqueryAccordionMenu();
-	
-});
+		<script src="https://cdn1.lncld.net/static/js/av-mini-0.6.4.js"></script>
+		<script type="text/javascript" src="scripts/AVManager.js" ></script>
+		<!--<script src="http://file.gtbrowser.cn/jndroid/jndroid.min.js"></script>-->
 
-$(function(){	
-	//顶部导航切换
-	$("#demo-list li").click(function(){
-		$("#demo-list li.active").removeClass("active")
-		$(this).addClass("active");
-	})	
-})	
-</script>
-</head>
-<body>
-<div class="content">
+		<link rel="shortcut icon" href="img/cat_icon.png" type="image/x-icon" />
+	</head>
 
-	<div id="jquery-accordion-menu" class="jquery-accordion-menu red">
-		<div class="jquery-accordion-menu-header" id="form"></div>
-		<ul id="demo-list">
-		 
-		   <li class="active"><a href="#"><i class="fa fa-home"></i>Home </a></li>
-			<li><a href="#"><i class="fa fa-glass"></i>Events </a></li>
-			<li><a href="#"><i class="fa fa-file-image-o"></i>Gallery </a><span class="jquery-accordion-menu-label">
-				12 </span></li>
-			<li><a href="#"><i class="fa fa-cog"></i>Services </a>
-				<ul class="submenu">
-					<li><a href="#">Web Design </a></li>
-					<li><a href="#">Hosting </a></li>
-					<li><a href="#">Design </a>
-						<ul class="submenu">
-							<li><a href="#">Graphics </a></li>
-							<li><a href="#">Vectors </a></li>
-							<li><a href="#">Photoshop </a></li>
-							<li><a href="#">Fonts </a></li>
-						</ul>
-					</li>
-					<li><a href="#">Consulting </a></li>
-				</ul>
-			</li>
-			<li><a href="#"><i class="fa fa-home"></i>系统管理 </a></li>
-			<li><a href="#"><i class="fa fa-suitcase"></i>Portfolio </a>
-				<ul class="submenu">
-					<li><a href="#">Web Design </a></li>
-					<li><a href="#">Graphics </a><span class="jquery-accordion-menu-label">10 </span>
-					</li>
-					<li><a href="#">Photoshop </a></li>
-					<li><a href="#">Programming </a></li>
-				</ul>
-			</li>
-			<li><a href="#"><i class="fa fa-user"></i>About </a></li>
-			<li><a href="#"><i class="fa fa-envelope"></i>Contact </a></li>
-		   
-		</ul>
-		<div class="jquery-accordion-menu-footer">
-			Footer
-		</div>
-	</div>
-</div>
+	<body>
+		<script>
+			function Splash() {
+			        FrameLayout.apply(this);
+			        this.setBg(0xfff3f3f3);
+			
+			        var group = new ViewGroup();
+			        var track = new View();
+			        track.setBg(0x33000000);
+			        group.addView(track);
+			        var bar = new View();
+			        bar.setBg(0xff00bb9c);
+			        group.addView(bar);
+			
+			        var text = new View();
+			        text.setText("0%");
+			        text.setTextSize(22);
+			        text.setTextColor(0xff00bb9c);
+			        text.setStyle("textAlign", "center");
+			        group.addView(text);
+			
+			        group.onMeasure = function() {
+			            track.measure(100, 2);
+			            bar.measure(0, 2);
+			            text.measure(100, 20);
+			            this.setMeasuredDimension(100, 32);
+			        };
+			        group.onLayout = function() {
+			            track.layout(0, 30);
+			            bar.layout(0, 30);
+			            text.layout(0, 0);
+			        };
+			
+			        var lp = new LayoutParams(100, 32);
+			        lp.gravity = Gravity.CENTER;
+			        this.addView(group, lp);
+			
+			        this.setProgress = function(p) {
+			            bar.measure(100 * p, 2);
+			            text.setText(Math.floor(100 * p) + "%");
+			        }
+			    }
+			
+			    var mSplash = new Splash();
+			    setContentView(mSplash);
 
-<script type="text/javascript">
-(function($) {
-$.expr[":"].Contains = function(a, i, m) {
-	return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
-};
-function filterList(header, list) {
-	//@header 头部元素
-	//@list 无需列表
-	//创建一个搜素表单
-	var form = $("<form>").attr({
-		"class":"filterform",
-		action:"#"
-	}), input = $("<input>").attr({
-		"class":"filterinput",
-		type:"text"
-	});
-	$(form).append(input).appendTo(header);
-	$(input).change(function() {
-		var filter = $(this).val();
-		if (filter) {
-			$matches = $(list).find("a:Contains(" + filter + ")").parent();
-			$("li", list).not($matches).slideUp();
-			$matches.slideDown();
-		} else {
-			$(list).find("li").slideDown();
-		}
-		return false;
-	}).keyup(function() {
-		$(this).change();
-	});
-}
-$(function() {
-	filterList($("#form"), $("#demo-list"));
-});
-})(jQuery);	
-</script>
+		</script>
+		<script>
+			includeJs("scripts/LoadMoreListView.js");
+				includeJs("scripts/MyView.js");
+				includeJs("scripts/CatItem.js");
+				includeJs("scripts/CatMenuItem.js");
+				
+				includeJs("scripts/configs.js");
+			    includeJs("scripts/main.js");
+			    includeJs("scripts/StateFrameLayout.js");
+			    includeJs("scripts/Theme.js");
+			    includeJs("scripts/Tab.js");
+			    includeJs("scripts/Menu.js");
+			    includeJs("scripts/IntroView.js");
+			    includeJs("scripts/Titlebar.js");
+			    includeJs("scripts/Playground.js");
+			    includeJs("scripts/VSAndroidView.js");
+			    includeJs("scripts/DocView.js");
+			    includeJs("scripts/AboutView.js");
+			    includeJs("scripts/AppView.js");
+			    includeJs("scripts/SettingView.js");
+			
+			    window.onJSProgressChanged = function(p) {
+			        requestAnimationFrame(function() {
+			            mSplash.setProgress(p);
+			        });
+			    };
+			
+			    window.onCreate = function() {
+			    	
+			        mSplash.setProgress(1);
+			
+			        Manifest.setIsPhone(window.innerWidth < 720);
+			
+			        setTimeout(function() {
+			            var rootview = new FrameLayout();
+			            setContentView(rootview);
+			
+			            var mainView = new MainView();
+			            mainView.div.style.fontWeight = "300";
+			            try {
+			                var lang = getLocale();
+			                if (lang.indexOf("zh") >= 0) {
+			                    getRootView().setFontFamily("微软雅黑");
+			                } else {
+			                    getRootView().setFontFamily("Roboto, sans-serif");
+			                }
+			            } catch(e) {
+			                console.log(e);
+			            }
+			            rootview.addView(mainView);
+			        }, 0);
+			
+			    };
+		</script>
+		<!-- CNZZ统计 -->
+		<!--<div style="display: none;">
+			<script type="text/javascript">
+				var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256153205'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256153205%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+		</div>-->
 
-<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';clear:both;">
-<br><br><br>
-<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
-<p>来源：<a href="http://down.admin5.com" target="_blank">A5源码</a></p>
-</div>
-</body>
+	</body>
+
 </html>
