@@ -14,7 +14,7 @@
 
 ## License    
 
-[![License](https://img.shields.io/github/license/ColorfulCat/webtest.js.svg)](https://github.com/ColorfulCat/webtest)
+[![License](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/ColorfulCat/webtest/blob/gh-pages/LICENSE)
 
 
 
