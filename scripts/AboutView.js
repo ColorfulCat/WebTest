@@ -30,12 +30,12 @@ function AboutView() {
     
     var questionView = new QuestionView();
     cnt.addView(questionView, lp);
-//
-//  var commentTitle = Theme.createThemeTitle(R.string.comments);
-//  cnt.addView(commentTitle);
-//
-//  var commentView = new CommentView();
-//  cnt.addView(commentView, lp);
+    
+     var commentTitle = Theme.createThemeTitle(R.string.comments);
+     cnt.addView(commentTitle);
+    
+     var commentView = new CommentView();
+     cnt.addView(commentView, lp);
 
  
 
