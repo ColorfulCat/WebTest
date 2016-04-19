@@ -1,6 +1,5 @@
 //书签网界面 
 
-
 var mMenus = [];
 var mCats = [];
 var menuLinearLayout;
@@ -19,7 +18,6 @@ function DocView() {
 	//	  mWebView.loadUrl("androidcat/index.html");
 	//	  this.addView(mWebView, layoutParam1);
 	//  this.requestLayout();
-
 
 	var mainContainer = new LinearLayout();
 	mainContainer.setBackgroundColor(R.color.bg);

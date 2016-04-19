@@ -152,6 +152,7 @@ function _R() {
         this.content_padding_bottom = 66;
         
         this.padding32 = 32;
+        this.padding24 = 24;
 
         this.corner = 2;
 

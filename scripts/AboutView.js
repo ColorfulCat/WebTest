@@ -332,7 +332,7 @@ function QuestionView() {
     this.setBackgroundColor(0xffffffff);
     this.setCornerSize(R.dimen.corner);
     this.setBoxShadow(0, 1, 2, 0, R.color.shadow);
-    this.setPadding(R.dimen.padding);
+    this.setPadding(R.dimen.padding24);
 
     var question = Theme.createText(R.string.ask_question);
     question.setTextIsSelectable(true);

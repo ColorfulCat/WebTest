@@ -47,6 +47,7 @@ function CatItem(catItem) {
 	var descTV = Theme.createSubText(desc);
 //	descTV.setTextIsSelectable(true);
 //	descTV.setLineHeight(R.dimen.text * 2);
+	descTV.setSingleLine(true);
 	var commentLp = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
 	commentLp.topMargin = 4;
 	contentArea.addView(descTV, commentLp);
