@@ -42,7 +42,7 @@ function ScrollView() {
     jndroid.style.lineHeight = "80px";
     jndroid.style.textAlign = "center";
     var img = document.createElement("img");
-    img.src = "img/ic_launcher.png";
+    img.src = "img/cat_icon.png";
     img.style.width = "50px";
     img.style.height = "50px";
     img.style.verticalAlign = "text-bottom";
