@@ -60,7 +60,7 @@ function _R() {
         	
             this.intro = "首页推荐";
             this.getstart = "开始";
-            this.vs_android = "书签导航";
+            this.vs_android = "交流社区";
             this.doc = "书签导航";
             this.app = "应用推荐";
             this.about = "关于我们";

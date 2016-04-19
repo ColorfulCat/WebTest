@@ -19,9 +19,9 @@ function Menu(titlebar) {
 
     addItem(0, R.string.intro);
     addItem(1, R.string.doc);
-//  addItem(2, R.string.vs_android);
+    addItem(2, R.string.vs_android);
 //  addItem(3, R.string.app);
-    addItem(2, R.string.about);
+    addItem(3, R.string.about);
     
     
 

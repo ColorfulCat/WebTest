@@ -20,13 +20,13 @@ function MainView() {
 				case 1:
 					cnt.addFragment(createDocView(), "view=cat");
 					break;
-//				case 2:
-//					cnt.addFragment(createVsView(), "view=vs");
+				case 2:
+					cnt.addFragment(createVsView(), "view=vs");
 //					break;
 //				case 3:
 //					cnt.addFragment(createAppView(), "view=app");
 //					break;
-				case 2:
+				case 3:
 					cnt.addFragment(createAboutView(), "view=about");
 					break;
 			}
@@ -39,7 +39,7 @@ function MainView() {
 		var v;
 		if (view == "about") {
 			v = createAboutView();
-			mTitle.setSelectIndex(2)
+			mTitle.setSelectIndex(3)
 		} else if (view == "app") {
 			v = createAppView();
 			mTitle.setSelectIndex(3);
