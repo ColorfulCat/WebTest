@@ -140,7 +140,12 @@ function queryCats(tag) {
 	contentLinearLayout.addView(progress,lp); 
 	
 	var query = new AV.Query('Cat');
-	query.equalTo('tag', tag);
+	if(tag == "精品推荐" || tag == ""){
+		query.limit(20);
+	}else{
+		query.equalTo('tag', tag);
+	}
+	query.addDescending('grade');
 	query.find().then(function(results) {
 		
 		for (var i = 0; i < results.length; i++) {
@@ -149,6 +154,7 @@ function queryCats(tag) {
 			catItem.icon = results[i].get("icon");
 			catItem.title = results[i].get("title");
 			catItem.tag = results[i].get("tag");
+			catItem.hit = results[i].get("hit");
 			catItem.url = results[i].get("url");
 			catItem.desc = results[i].get("desc");
 
