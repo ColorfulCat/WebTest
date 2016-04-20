@@ -20,12 +20,12 @@ function MainView() {
 					cnt.addFragment(createCatFragment(), "view=CatFragment");
 					break;
 				case 2:
-					if(Manifest.isPhone){
-						window.open("http://133.130.120.73:9000/",'','');
-						tab.setSelectIndex(0);
-					}else{
+//					if(Manifest.isPhone){
+//						window.open("http://133.130.120.73:9000/");
+//						tab.setSelectIndex(0);
+//					}else{
 						cnt.addFragment(createForumFragment(), "view=ForumFragment");
-					}
+//					}
 					break;
 				case 3:
 					cnt.addFragment(createAboutFragment(), "view=AboutFragment");
