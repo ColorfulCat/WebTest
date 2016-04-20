@@ -146,19 +146,19 @@ function CommentView() {
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
-    comment = new Comment('img/cat_icon.png', '这么巧', '我也是测试数据');
+    comment = new Comment('https://avatars0.githubusercontent.com/u/4728583?v=3&s=460', 'Patrick', '大圣');
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
-    comment = new Comment('img/cat_icon.png', '呵呵哒', '123');
+    comment = new Comment('https://avatars3.githubusercontent.com/u/7868514?v=3&s=460', '捕风的汉子', 'jp');
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
-    comment = new Comment('img/cat_icon.png', '么么哒', '321');
+    comment = new Comment('https://avatars0.githubusercontent.com/u/6269257?v=3&s=460', '小鱼', '鱼姐');
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
-    comment = new Comment('img/cat_icon.png', ' = = ', '111');
+    comment = new Comment('img/cat_icon.png', '你', '对的，就是你，还不赶快加入我们？！');
     this.addView(comment);
 }
 
