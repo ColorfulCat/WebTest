@@ -260,23 +260,23 @@ function CommentView() {
     this.setPadding(R.dimen.padding, R.dimen.padding, R.dimen.padding, 0);
 
 
-    var comment = new Comment('images/kkmoving.jpg', '123', '4567');
+    var comment = new Comment('images/kkmoving.jpg', '你好', '我是测试数据');
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
-    comment = new Comment('images/zhuyunbin.jpg', '123', '123');
+    comment = new Comment('images/zhuyunbin.jpg', '这么巧', '我也是测试数据');
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
-    comment = new Comment('images/yanglingfeng.png', '123312', '123');
+    comment = new Comment('images/yanglingfeng.png', '呵呵哒', '123');
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
-    comment = new Comment('images/liuchenchen.png', '123', '321');
+    comment = new Comment('images/liuchenchen.png', '么么哒', '321');
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
-    comment = new Comment('images/zhangyang.png', '123', '1123123');
+    comment = new Comment('images/zhangyang.png', ' = = ', '111');
     this.addView(comment);
 }
 
