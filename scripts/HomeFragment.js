@@ -1,4 +1,4 @@
-function IntroView() {
+function HomeFragment() {
 	ScrollView.apply(this);
 
 	var linearLayout = new LinearLayout();

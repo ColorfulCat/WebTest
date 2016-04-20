@@ -5,7 +5,7 @@ var mCats = [];
 var menuLinearLayout;
 var contentLinearLayout;
 
-function DocView() {
+function CatFragment() {
 	LinearLayout.apply(this);
 	this.setOrientation(LinearLayout.HORIZONTAL);
 

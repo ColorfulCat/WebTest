@@ -1,11 +1,10 @@
 function MainView() {
 	ViewGroup.apply(this);
 
-	var introView = null;
-	var vsView = null;
-	var docView = null;
-	var appView = null;
-	var aboutView = null;
+	var homeFragment = null;
+	var forumFragment = null;
+	var catFragment = null;
+	var aboutFragment = null;
 
 	mTitle = new Titlebar();
 	this.addView(mTitle);
@@ -15,19 +14,16 @@ function MainView() {
 		setTimeout(function() {
 			switch (i) {
 				case 0:
-					cnt.addFragment(createIntroView(), "view=intro");
+					cnt.addFragment(createHomeFragment(), "view=HomeFragment");
 					break;
 				case 1:
-					cnt.addFragment(createDocView(), "view=cat");
+					cnt.addFragment(createCatFragment(), "view=CatFragment");
 					break;
 				case 2:
-					cnt.addFragment(createVsView(), "view=vs");
-//					break;
-//				case 3:
-//					cnt.addFragment(createAppView(), "view=app");
-//					break;
+					cnt.addFragment(createForumFragment(), "view=ForumFragment");
+					break;
 				case 3:
-					cnt.addFragment(createAboutView(), "view=about");
+					cnt.addFragment(createAboutFragment(), "view=AboutFragment");
 					break;
 			}
 		}, 200);
@@ -37,23 +33,20 @@ function MainView() {
 	var callback = function(request) {
 		var view = request["view"];
 		var v;
-		if (view == "about") {
-			v = createAboutView();
+		if (view == "AboutFragment") {
+			v = createAboutFragment();
 			mTitle.setSelectIndex(3)
-		} else if (view == "app") {
-			v = createAppView();
-			mTitle.setSelectIndex(3);
-		} else if (view == "vs") {
-			v = createVsView();
+		} else if (view == "ForumFragment") {
+			v = createForumFragment();
 			mTitle.setSelectIndex(2);
-		} else if (view == "cat") {
-			v = createDocView();
+		} else if (view == "CatFragment") {
+			v = createCatFragment();
 			mTitle.setSelectIndex(1);
-		} else if (view == "intro") {
-			v = createIntroView();
+		} else if (view == "HomeFragment") {
+			v = createHomeFragment();
 			mTitle.setSelectIndex(0);
 		} else {
-			v = createIntroView();
+			v = createHomeFragment();
 			mTitle.setSelectIndex(0);
 		}
 		return v;
@@ -85,38 +78,31 @@ function MainView() {
 		cnt.layout(x, y);
 	};
 
-	function createIntroView() {
-		if (introView == null) {
-			introView = new IntroView();
+	function createHomeFragment() {
+		if (homeFragment == null) {
+			homeFragment = new HomeFragment();
 		}
-		return introView;
+		return homeFragment;
 	}
 
-	function createVsView() {
-		if (vsView == null) {
-			vsView = new VSAndroidView();
+	function createForumFragment() {
+		if (forumFragment == null) {
+			forumFragment = new ForumFragment();
 		}
-		return vsView;
+		return forumFragment;
 	}
 
-	function createDocView() {
-		if (docView == null) {
-			docView = new DocView();
+	function createCatFragment() {
+		if (catFragment == null) {
+			catFragment = new CatFragment();
 		}
-		return docView;
+		return catFragment;
 	}
 
-	function createAppView() {
-		if (appView == null) {
-			appView = new AppView();
+	function createAboutFragment() {
+		if (aboutFragment == null) {
+			aboutFragment = new AboutFragment();
 		}
-		return appView;
-	}
-
-	function createAboutView() {
-		if (aboutView == null) {
-			aboutView = new AboutView();
-		}
-		return aboutView;
+		return aboutFragment;
 	}
 }

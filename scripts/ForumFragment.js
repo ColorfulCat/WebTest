@@ -1,4 +1,4 @@
-function VSAndroidView() {
+function ForumFragment() {
 	LinearLayout.apply(this);
 	this.setOrientation(LinearLayout.VERTICAL);
 	

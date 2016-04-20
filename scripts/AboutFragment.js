@@ -1,4 +1,4 @@
-function AboutView() {
+function AboutFragment() {
     ScrollView.apply(this);
 
     var scrollCnt = new ViewGroup();
@@ -130,127 +130,9 @@ function LogoView() {
 //      }
     };
 
-    function MileStoneView(milestones) {
-        LinearLayout.apply(this);
-
-        var self = this;
-        var isExpand = false;
-        var padding = R.dimen.padding;
-
-        loadViews();
-
-        function loadViews() {
-            var title = Theme.createText(R.string.change_log);
-            title.setBorderTop(1, R.color.dividers);
-            var titleLp = new LayoutParams(LayoutParams.FILL_PARENT, 48);
-            titleLp.leftMargin = padding;
-            titleLp.rightMargin = padding;
-            titleLp.bottomMargin = -padding / 2;
-            self.addView(title, titleLp);
-
-            var issueLp = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
-            issueLp.leftMargin = padding;
-            issueLp.rightMargin = padding;
-
-            var length = 1;
-            if (isExpand) {
-                length = milestones.length;
-            }
-            for (var i = 0; i < length; i++) {
-                if (milestones[i].issues && milestones[i].issues.length > 0) {
-                    var item = new MileStoneItem(milestones[i]);
-                    self.addView(item, issueLp);
-                }
-            }
-            var btn = new MButton();
-            if (isExpand) {
-                btn.setText(R.string.show_less);
-            } else {
-                btn.setText(R.string.show_more);
-            }
-            btn.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
-            btn.setPadding(R.dimen.half_padding);
-            btn.setDimBg(false);
-            btn.setTextSize(R.dimen.text);
-            btn.setTextColor(R.color.secondary_text);
-            btn.setOnClickListener(function() {
-                isExpand = !isExpand;
-                self.removeAllViews();
-                loadViews();
-                self.getParent().getParent().requestLayout();
-            });
-            btn.setBorder(0);
-            btn.setBoxShadow(0, 0, 0, 0, 0);
-
-            var buttonLp = new LayoutParams(100, 36);
-            buttonLp.setMargins(8);
-            self.addView(btn, buttonLp);
-        }
-
     }
 
-    function MileStoneItem(milestone) {
-        ViewGroup.apply(this);
-
-        this.setBorderBottom(1, R.color.dividers);
-
-        var padding = R.dimen.padding;
-
-        var version = Theme.createText(R.string.version + ": " +milestone.title);
-        version.setTextSize(R.dimen.sub_text);
-        this.addView(version);
-
-        var issueViews = [];
-
-        var issues = milestone.issues;
-        for (var i = 0; i < issues.length; i++) {
-            var issue = Theme.createSubText(issues[i].trim());
-            issueViews.add(issue);
-            this.addView(issue);
-        }
-
-        var time = milestone.created_at;
-        var timeView = Theme.createSubText(time);
-        this.addView(timeView);
-
-        this.onMeasure = function(wMS) {
-            var w = MeasureSpec.getSize(wMS);
-            var h = 0;
-
-            Utils.measureExactly(version, logoAreaW, 24);
-            Utils.measureExactly(timeView, logoAreaW, 24);
-
-            var cntW = w - logoAreaW - padding;
-            for (var i = 0; i < issueViews.length; i++) {
-                issueViews[i].measure(cntW, MeasureSpec.makeMeasureSpec(24, MeasureSpec.EXACTLY));
-                h += issueViews[i].getMeasuredHeight();
-            }
-            h = Math.max(80, h + 32);
-
-            this.setMeasuredDimension(w, h);
-        };
-
-        this.onLayout = function() {
-            var x, y;
-
-            x = 0;
-            y = padding;
-            version.layout(x, y);
-
-            y += version.getMeasuredHeight();
-            timeView.layout(x, y);
-
-            x = logoAreaW + padding;
-            y = padding;
-            for (var i = 0; i < issueViews.length; i++) {
-                issueViews[i].layout(x, y);
-                y += issueViews[i].getMeasuredHeight();
-            }
-        }
-    }
-}
-
-
+ 
 function CommentView() {
     LinearLayout.apply(this);
 
@@ -260,23 +142,23 @@ function CommentView() {
     this.setPadding(R.dimen.padding, R.dimen.padding, R.dimen.padding, 0);
 
 
-    var comment = new Comment('images/kkmoving.jpg', '你好', '我是测试数据');
+    var comment = new Comment('img/cat_icon.png', '你好', '我是测试数据');
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
-    comment = new Comment('images/zhuyunbin.jpg', '这么巧', '我也是测试数据');
+    comment = new Comment('img/cat_icon.png', '这么巧', '我也是测试数据');
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
-    comment = new Comment('images/yanglingfeng.png', '呵呵哒', '123');
+    comment = new Comment('img/cat_icon.png', '呵呵哒', '123');
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
-    comment = new Comment('images/liuchenchen.png', '么么哒', '321');
+    comment = new Comment('img/cat_icon.png', '么么哒', '321');
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
-    comment = new Comment('images/zhangyang.png', ' = = ', '111');
+    comment = new Comment('img/cat_icon.png', ' = = ', '111');
     this.addView(comment);
 }
 
