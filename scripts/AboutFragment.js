@@ -31,7 +31,7 @@ function AboutFragment() {
     var questionView = new QuestionView();
     cnt.addView(questionView, lp);
     
-     var commentTitle = Theme.createThemeTitle(R.string.comments);
+     var commentTitle = Theme.createThemeTitle("维护网站的小伙伴们~");
      cnt.addView(commentTitle);
     
      var commentView = new CommentView();
@@ -142,7 +142,7 @@ function CommentView() {
     this.setPadding(R.dimen.padding, R.dimen.padding, R.dimen.padding, 0);
 
 
-    var comment = new Comment('img/cat_icon.png', '你好', '我是测试数据');
+    var comment = new Comment('https://avatars1.githubusercontent.com/u/6687122?v=3&s=460', '大花猫', 'AndroidCat创建者，技术渣，但是希望能够帮助到广大安卓开发的小伙伴。目前隐居西湖旁猫厂潜心修炼。');
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
@@ -166,7 +166,7 @@ function Comment(icon, name, text) {
     LinearLayout.apply(this);
 
     var iconAreaW = 72;
-    var iconSize = 40;
+    var iconSize = 42;
     var editH = 150;
 
     this.setOrientation(LinearLayout.HORIZONTAL);
@@ -200,7 +200,7 @@ function Comment(icon, name, text) {
     contentArea.addView(nameView, nameLp);
 
     var comment = Theme.createSubText(text);
-    comment.setLineHeight(R.dimen.text * 2);
+    comment.setLineHeight(R.dimen.text);
     var commentLp = new LayoutParams(nameLp);
     commentLp.topMargin = R.dimen.half_padding;
     commentLp.bottomMargin = R.dimen.padding;
