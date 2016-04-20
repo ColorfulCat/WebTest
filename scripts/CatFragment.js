@@ -86,7 +86,7 @@ function queryMenus() {
 			mMenus.push(catMenuItem);
 		}
 		updateMenus();
-		queryCats(mMenus[0].title);
+		queryCats(mMenus[0]);
 	}, function(error) {
 		alert('Error: ' + error.code + ' ' + error.message);
 	});
@@ -126,7 +126,7 @@ function updateMenusViews(index) {
 	}
 }
 
-function queryCats(tag) {
+function queryCats(catMenuItem) {
 	//
 	mCats.clear();
 	contentLinearLayout.removeAllViews();
@@ -140,10 +140,10 @@ function queryCats(tag) {
 	contentLinearLayout.addView(progress,lp); 
 	
 	var query = new AV.Query('Cat');
-	if(tag == "精品推荐" || tag == ""){
+	if(catMenuItem.tag == "recommend" || catMenuItem.tag == "" || catMenuItem.tag == "undefined"){
 		query.limit(20);
 	}else{
-		query.equalTo('tag', tag);
+		query.equalTo('tag', catMenuItem.tag);
 	}
 	query.addDescending('grade');
 	query.find().then(function(results) {
@@ -151,6 +151,9 @@ function queryCats(tag) {
 		for (var i = 0; i < results.length; i++) {
 			var catItem = {};
 			catItem.index = i;
+			catItem.id = results[i].get("objectId");
+			catItem.createdAt = results[i].get("createdAt");
+			catItem.updatedAt = results[i].get("updatedAt");
 			catItem.icon = results[i].get("icon");
 			catItem.title = results[i].get("title");
 			catItem.tag = results[i].get("tag");
@@ -160,15 +163,15 @@ function queryCats(tag) {
 
 			mCats.push(catItem);
 		}
-		updateCats(tag);
+		updateCats(catMenuItem);
 	}, function(error) {
 		alert('Error: ' + error.code + ' ' + error.message);
 	});
 }
 
-function updateCats(tag) {
+function updateCats(catMenuItem) {
 	contentLinearLayout.removeAllViews();
-	var title = Theme.createCatTitle(tag);
+	var title = Theme.createCatTitle(catMenuItem.title);
 	var lpTop = new LP(LP.FP, LP.WC);
 	lpTop.topMargin = R.dimen.padding;
 	lpTop.bottomMargin = R.dimen.padding;

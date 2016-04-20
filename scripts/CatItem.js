@@ -20,7 +20,7 @@ function CatItem(catItem) {
 	this.addView(iconArea, iconAreaLp);
 
 	var avatar = new ImageView();
-	if(icon == ""){
+	if(icon.trim() == "" || icon == null){
 		avatar.setImgSrc("img/cat_foot.png");
 	}else{
 		avatar.setImgSrc(icon);

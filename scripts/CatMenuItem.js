@@ -55,7 +55,7 @@ function CatMenuItem(catMenuItem) {
 		setTimeout(function() {
 			updateMenusSelection(catMenuItem.index);
 		}, 120);
-		queryCats(catMenuItem.title);
+		queryCats(catMenuItem);
 	});
 	
 	this.getIcon = function() {
