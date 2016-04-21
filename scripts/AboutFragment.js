@@ -146,15 +146,15 @@ function CommentView() {
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
-    comment = new Comment('https://avatars0.githubusercontent.com/u/4728583?v=3&s=460', 'Patrick', '大圣');
+    comment = new Comment('https://avatars0.githubusercontent.com/u/4728583?v=3&s=460', 'Patrick', '常驻广州的撸码铲屎官。');
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
-    comment = new Comment('https://avatars3.githubusercontent.com/u/7868514?v=3&s=460', '捕风的汉子', 'jp');
+    comment = new Comment('https://avatars3.githubusercontent.com/u/7868514?v=3&s=460', '捕风的汉子', '走在路上的安卓开发学习者，欢迎交流。https://jp1017.github.io/');
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
-    comment = new Comment('https://avatars0.githubusercontent.com/u/6269257?v=3&s=460', '小鱼', '鱼姐');
+    comment = new Comment('https://avatars0.githubusercontent.com/u/6269257?v=3&s=460', '小鱼', '活的没心没肺的渣渣，大神等等我！');
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
@@ -195,12 +195,14 @@ function Comment(icon, name, text) {
     this.addView(contentArea, contentLp);
 
     var nameView = Theme.createText(name);
+    nameView.setTextIsSelectable(true);
     var nameLp = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
     nameLp.topMargin = R.dimen.padding;
     contentArea.addView(nameView, nameLp);
 
     var comment = Theme.createSubText(text);
     comment.setLineHeight(R.dimen.text);
+    comment.setTextIsSelectable(true);
     var commentLp = new LayoutParams(nameLp);
     commentLp.topMargin = R.dimen.half_padding;
     commentLp.bottomMargin = R.dimen.padding;
