@@ -84,7 +84,7 @@ function _R() {
             this.change_log = "更新记录";
             this.comments = "~~~";
             this.qa = "联系";
-            this.ask_question = "如需讨论，请加入QQ反馈群：105472201</br></br>Thanks to  Jndroid & LeanCloud";
+            this.ask_question = "AndroidCat安卓书签网，是专门为Android开发者而收集整理的网站资源导航。</br></br>如需讨论，请加入QQ反馈群：105472201</br></br>Thanks to  Jndroid & LeanCloud";
 
             this.version_update = "版本已更新";
 

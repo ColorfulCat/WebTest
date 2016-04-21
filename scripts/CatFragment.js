@@ -4,6 +4,7 @@ var mMenus = [];
 var mCats = [];
 var menuLinearLayout;
 var contentLinearLayout;
+var contentScrollView;
 
 function CatFragment() {
 	LinearLayout.apply(this);
@@ -58,7 +59,7 @@ function CatFragment() {
 	menuLinearLayout.addView(progress,lp); 
 
 
-	var contentScrollView = new ScrollView();
+	contentScrollView = new ScrollView();
 	mainContainer.addView(contentScrollView);
 
 	contentLinearLayout = new LinearLayout();
@@ -141,7 +142,7 @@ function queryCats(catMenuItem) {
 	
 	var query = new AV.Query('Cat');
 	if(catMenuItem.tag == "recommend" || catMenuItem.tag == "" || catMenuItem.tag == "undefined"){
-		query.limit(20);
+		query.limit(30);
 	}else{
 		query.equalTo('tag', catMenuItem.tag);
 	}
@@ -183,4 +184,6 @@ function updateCats(catMenuItem) {
 		var item = new CatItem(mCats[i]);
 		contentLinearLayout.addView(item, lp);
 	}
+	//返回顶部
+	contentScrollView.scrollTo(0,0);
 }
