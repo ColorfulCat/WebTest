@@ -56,7 +56,7 @@ function CatItem(catItem) {
 		setTimeout(function() {
 			window.open(url,'','');
 			//TODO 记录事件打点
-		}, 120);
+		}, 200);
 		
 	});
 	
