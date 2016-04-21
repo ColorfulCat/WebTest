@@ -19,9 +19,14 @@ function Menu(titlebar) {
 
     addItem(0, R.string.intro);
     addItem(1, R.string.doc);
-    addItem(2, R.string.vs_android);
-//  addItem(3, R.string.app);
-    addItem(3, R.string.about);
+    if(Manifest.isPhone){
+    		addItem(2, R.string.about);
+    }else{
+    		addItem(2, R.string.vs_android);
+    		addItem(3, R.string.about);
+    }
+ 
+    
     
     
 

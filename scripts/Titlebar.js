@@ -13,7 +13,9 @@ function Titlebar() {
 	tab.setIndicatorColor(R.color.theme);
 	tab.addTabItem(createTabItem(R.string.intro));
 	tab.addTabItem(createTabItem(R.string.doc));
-	tab.addTabItem(createTabItem(R.string.vs_android));
+	if(!Manifest.isPhone){
+		tab.addTabItem(createTabItem(R.string.vs_android));
+	}
 	//  tab.addTabItem(createTabItem(R.string.app));
 	tab.addTabItem(createTabItem(R.string.about));
 	tab.setOnSelectedListener(function(index) {
