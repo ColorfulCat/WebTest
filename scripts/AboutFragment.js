@@ -142,11 +142,11 @@ function CommentView() {
     this.setPadding(R.dimen.padding, R.dimen.padding, R.dimen.padding, 0);
 
 
-    var comment = new Comment('https://avatars1.githubusercontent.com/u/6687122?v=3&s=460', '大花猫', 'AndroidCat创建者，技术渣，但是希望能够帮助到广大安卓开发的小伙伴。目前隐居西湖旁猫厂潜心修炼。');
+    var comment = new Comment('https://avatars1.githubusercontent.com/u/6687122?v=3&s=460', '大花猫', 'AndroidCat创建者，技术渣，目前隐居西湖旁猫厂潜心修炼。');
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
-    comment = new Comment('https://avatars0.githubusercontent.com/u/4728583?v=3&s=460', 'Patrick', '常驻广州的撸码铲屎官。');
+    comment = new Comment('https://avatars0.githubusercontent.com/u/4728583?v=3&s=460', 'Patrick', '常驻广州的撸码铲屎官。http://pixelblog.top/');
     comment.setBorderBottom(1, R.color.dividers);
     this.addView(comment);
 
@@ -182,6 +182,7 @@ function Comment(icon, name, text) {
 
     var avatar = new ImageView();
     avatar.setImgSrc(icon);
+    avatar.setId("avatar");
     avatar.setImgWidth(iconSize);
     avatar.setImgHeight(iconSize);
     avatar.setCornerSize(iconSize / 2);
