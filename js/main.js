@@ -20,5 +20,8 @@ $( document ).ready(function(){
   $('.modal-trigger').leanModal();
   
   $('ul.tabs').tabs();
-	
 })
+
+function init(){
+}
+
