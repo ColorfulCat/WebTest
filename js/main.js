@@ -25,3 +25,7 @@ $( document ).ready(function(){
 function init(){
 }
 
+
+function floatingBtn1(){
+	 Materialize.toast('I am a toast!', 4000);
+}
