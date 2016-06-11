@@ -23,9 +23,16 @@ $( document ).ready(function(){
 })
 
 function init(){
+	
+	
 }
 
+
+function initCatView(){
+	
+}
 
 function floatingBtn1(){
-	 Materialize.toast('I am a toast!', 4000);
+	 Materialize.toast('这个功能还没开发，，，', 2000);
 }
+
