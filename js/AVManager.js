@@ -88,3 +88,31 @@ function updateCatMenuHit(objectId){
 //	});
 // 
 //}
+var mMenus = [];
+
+function queryMenus() {
+	var query = new AV.Query('Sort');
+	query.addAscending('order');
+	query.find().then(function(results) {
+		mMenus.clear();
+		for (var i = 0; i < results.length; i++) {
+			var catMenuItem = {};
+			catMenuItem.index = i;
+			catMenuItem.title = results[i].get("title");
+			catMenuItem.tag = results[i].get("tag");
+			catMenuItem.id = results[i].id;
+			if (i == 0) {
+				catMenuItem.isSelected = true;
+			} else {
+				catMenuItem.isSelected = false;
+			}
+			mMenus.push(catMenuItem);
+		}
+//		updateMenus();
+//		queryCats(mMenus[0]);
+	}, function(error) {
+		alert('Error: ' + error.code + ' ' + error.message);
+	});
+}
+queryMenus();
+
